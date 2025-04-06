@@ -1,7 +1,5 @@
 # Employee Management App
 
-![App Screenshot](./public/screenshot.png) <!-- Add a screenshot if available -->
-
 A responsive React application for browsing and editing employee data with infinite scroll and form validation.
 
 ## Features
