@@ -15,10 +15,8 @@ A responsive React application for browsing and editing employee data with infin
 
 - React 18
 - Redux Toolkit
-- React Router (if used)
 - JSON Server (mock backend)
 - CSS3 (Flexbox, Grid)
-- Axios (if used)
 
 ## Prerequisites
 
