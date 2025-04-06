@@ -29,7 +29,7 @@ A responsive React application for browsing and editing employee data with infin
 
 ## Setup Instructions
 
-### 1. Clone the Repository
+## 1. Clone the Repository
 
 ```bash
 git clone https://github.com/your-username/user_database.git
