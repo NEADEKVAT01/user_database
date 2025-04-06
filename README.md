@@ -39,6 +39,10 @@ npm install
 ```bash
 npm install -g json-server
 ```
+Ready to use json file can be downloaded from here:
+```bash
+https://drive.google.com/file/d/1ry1VWIll9ZF6UEDUbXcdAIRf4iDXEye-
+```
 ## 3. Start JSON Server (run in a separate terminal):
 ```bash
 json-server --watch db.json --port 3001
