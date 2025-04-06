@@ -1,0 +1,247 @@
+/* ==================== */
+/* BASE CONTAINER STYLES */
+/* ==================== */
+.list-container {
+  width: 100%; /* Full width on mobile */
+  max-height: 100vh; /* Full viewport height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 0.5rem; /* Compact padding on mobile */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* ================= */
+/* LOADING INDICATOR */
+/* ================= */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px; /* Reduced height for mobile */
+  padding: 1rem;
+  color: #555;
+}
+
+.loading-screen .spinner {
+  width: 32px; /* Smaller spinner on mobile */
+  height: 32px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #3498db;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============== */
+/* ITEMS GRID/ROW */
+/* ============== */
+.item-grid {
+  display: flex;
+  flex-direction: column; /* Single column layout */
+  gap: 0.5rem; /* Consistent spacing between items */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* ============= */
+/* ITEM CARD STYLES */
+/* ============= */
+.item-card {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 0.75rem; /* Compact padding on mobile */
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  width: 100%; /* Full width */
+  box-sizing: border-box;
+  transition: all 0.2s ease; /* Smooth hover effects */
+}
+
+.item-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.item-card.active {
+  border-left: 3px solid #3498db; /* Active state indicator */
+  background-color: #f8fafc;
+}
+
+/* ============= */
+/* AVATAR STYLES */
+/* ============= */
+.avatar {
+  width: 40px; /* Smaller on mobile */
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #eee;
+  flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+/* ================ */
+/* TEXT CONTENT AREA */
+/* ================ */
+.text-content {
+  flex: 1; /* Take remaining space */
+  min-width: 0; /* Prevent overflow */
+  overflow: hidden; /* Handle long text */
+}
+
+.text-content h3 {
+  margin: 0 0 0.25rem 0;
+  color: #333;
+  font-size: 0.95rem; /* Smaller on mobile */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Truncate long names */
+}
+
+.text-content p {
+  margin: 0;
+  font-size: 0.85rem; /* Smaller on mobile */
+  color: #666;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ============== */
+/* TEXT COMPONENTS */
+/* ============== */
+.job-title {
+  font-weight: 500; /* Slightly bolder */
+}
+
+.separator {
+  display: none; /* Hidden on mobile */
+}
+
+.department {
+  color: #888; /* Lighter color for less emphasis */
+}
+
+/* ================= */
+/* LOADING INDICATOR */
+/* ================= */
+.loading-bar {
+  text-align: center;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ============== */
+/* EMPTY STATE */
+/* ============== */
+.item-card:empty::before {
+  content: "No data available";
+  color: #999;
+  font-style: italic;
+  padding: 1rem;
+  display: block;
+}
+
+/* ===================== */
+/* TOUCH DEVICE ADJUSTMENTS */
+/* ===================== */
+@media (hover: none) {
+  .item-card:hover {
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* ===================== */
+/* RESPONSIVE BREAKPOINTS */
+/* ===================== */
+
+/* Extra small screens (under 350px) */
+@media (max-width: 350px) {
+  .item-card {
+    padding: 0.5rem; /* Even more compact */
+  }
+  
+  .avatar {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .text-content h3 {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small screens (400px+) */
+@media (min-width: 400px) {
+  .list-container {
+    padding: 0.75rem;
+  }
+  
+  .item-grid {
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .item-card {
+    padding: 1rem;
+  }
+}
+
+/* Medium screens (480px+) */
+@media (min-width: 480px) {
+  .item-card {
+    padding: 1.25rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    gap: 0.5rem;
+  }
+  
+  .avatar {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .text-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .text-content p {
+    font-size: 0.9rem;
+  }
+  
+  .loading-bar {
+    padding: 1rem;
+    margin: 1rem;
+  }
+}
+
+/* Large screens (768px+) */
+@media (min-width: 768px) {
+  .list-container {
+    width: 50vw; /* Half viewport width on desktop */
+    padding: 1rem;
+  }
+  
+  .loading-screen {
+    height: 300px; /* Taller loading screen */
+  }
+  
+  .loading-screen .spinner {
+    width: 50px; /* Larger spinner */
+    height: 50px;
+    border-width: 5px;
+  }
+  
+  .separator {
+    display: inline; /* Show separator on desktop */
+    margin: 0 0.5rem;
+  }
+}

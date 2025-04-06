@@ -1,0 +1,234 @@
+/* Main form container styles */
+.UserForm {
+  width: 50vw;                  /* Take up half of viewport width */
+  height: 100vh;                /* Full viewport height */
+  overflow-y: scroll;           /* Enable vertical scrolling if needed */
+  box-sizing: border-box;       /* Include padding in width/height calculations */
+  border: 1px solid #ddd;       /* Light gray border */
+  padding: 1rem;                /* Internal spacing */
+}
+
+/* Form heading */
+h1 {
+  text-align: center;           /* Center-align the heading */
+}
+
+/* Form container styles */
+.form-container {
+  margin: 0 auto;               /* Center the form horizontally */
+  padding: 2rem;                /* Internal spacing */
+  background: #fff;             /* White background */
+  border-radius: 10px;          /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  display: flex;                /* Use flexbox layout */
+  flex-direction: column;       /* Stack children vertically */
+  gap: 1.5rem;                 /* Space between form elements */
+}
+
+/* Form label styles */
+.form-container label {
+  display: block;               /* Make labels block elements */
+  margin-bottom: 0.5rem;        /* Space below labels */
+  font-weight: 500;             /* Medium font weight */
+  color: #2d3748;               /* Dark gray text color */
+  font-size: 0.95rem;           /* Slightly smaller than base font */
+}
+
+/* Input field styles */
+.form-container input {
+  padding: 1rem;                /* Comfortable padding */
+  border: 1px solid #e2e8f0;    /* Light border */
+  border-radius: 6px;           /* Slightly rounded corners */
+  font-size: 1rem;              /* Base font size */
+  transition: all 0.2s ease;    /* Smooth transitions for interactions */
+  background-color: #f8fafc;    /* Very light blue-gray background */
+  width: 100%;                 /* Full width of container */
+  box-sizing: border-box;      /* Include padding in width */
+}
+
+/* Input focus state */
+.form-container input:focus {
+  outline: none;                /* Remove default outline */
+  border-color: #4299e1;        /* Blue border on focus */
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2); /* Blue glow effect */
+  background-color: #fff;       /* White background on focus */
+}
+
+/* Required field indicator */
+.form-container input[required] {
+  border-left: 3px solid #4299e1; /* Blue left border for required fields */
+}
+
+/* Button container */
+.form-container .button-group {
+  display: flex;                /* Use flexbox for buttons */
+  gap: 1rem;                    /* Space between buttons */
+  margin-top: 1rem;             /* Space above button group */
+}
+
+/* Base button styles */
+.save-btn,
+.cancel-btn {
+  flex: 1;                      /* Distribute space equally */
+  padding: 0.8rem;              /* Comfortable padding */
+  border-radius: 6px;           /* Rounded corners */
+  font-weight: 500;             /* Medium font weight */
+  font-size: 1rem;              /* Base font size */
+  cursor: pointer;              /* Pointer cursor on hover */
+  transition: all 0.2s ease;    /* Smooth transitions */
+}
+
+/* Save button specific styles */
+.save-btn {
+  background-color: #4299e1;    /* Blue background */
+  color: white;                 /* White text */
+  border: none;                 /* No border */
+}
+
+/* Save button hover state */
+.save-btn:hover:not(:disabled) {
+  background-color: #3182ce;    /* Darker blue on hover */
+  transform: translateY(-1px);  /* Slight lift effect */
+}
+
+/* Disabled save button */
+.save-btn:disabled {
+  background-color: #a0c4e0;    /* Lighter blue when disabled */
+  cursor: not-allowed;          /* Disabled cursor */
+  position: relative;           /* For positioning spinner */
+}
+
+/* Cancel button specific styles */
+.cancel-btn {
+  background-color: #fff;       /* White background */
+  color: #4a5568;               /* Dark gray text */
+  border: 1px solid #e2e8f0;    /* Light border */
+}
+
+/* Cancel button hover state */
+.cancel-btn:hover {
+  background-color: #f7fafc;    /* Very light gray on hover */
+  border-color: #cbd5e0;        /* Slightly darker border */
+  transform: translateY(-1px);  /* Slight lift effect */
+}
+
+/* Loading spinner for disabled save button */
+.save-btn:disabled::after {
+  content: "";                  /* Required for pseudo-element */
+  display: inline-block;        /* Display as inline block */
+  width: 16px;                  /* Spinner size */
+  height: 16px;                 /* Spinner size */
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Transparent spinner track */
+  border-radius: 50%;           /* Circular spinner */
+  border-top-color: white;      /* White spinner indicator */
+  animation: spin 1s linear infinite; /* Rotation animation */
+  margin-left: 8px;             /* Space from text */
+  vertical-align: middle;       /* Vertical alignment */
+}
+
+/* Spinner rotation animation */
+@keyframes spin {
+  to { transform: rotate(360deg); } /* Full rotation */
+}
+
+/* Form validation styles */
+.form-container input:invalid {
+  border-color: #fc8181;        /* Red border for invalid fields */
+}
+
+.form-container input:invalid:focus {
+  box-shadow: 0 0 0 3px rgba(252, 129, 129, 0.2); /* Red glow for invalid fields */
+}
+
+/* Success message styling */
+.success {
+  padding: 0.5rem;
+  background-color: #e6ffed;
+  color: #22863a;
+  border: 1px solid #b3e6c3;
+  border-radius: 4px;
+  text-align: center;
+  opacity: 0;
+}
+.shown {
+  animation: fade 3s linear;
+}
+@keyframes fade {
+  from { opacity: 0; }
+  25%,85% {opacity: 1;}
+  to { opacity: 0; }
+}
+
+/* ====================== */
+/* RESPONSIVE DESIGN */
+/* ====================== */
+
+/* Medium screens (600px and below) */
+@media (max-width: 600px) {
+  .UserForm {
+      width: 100%;              /* Full width on smaller screens */
+      height: auto;             /* Auto height */
+      min-height: 100vh;        /* At least full viewport height */
+  }
+  
+  .form-container {
+      padding: 1.5rem;          /* Slightly less padding */
+  }
+  
+  .form-container .button-group {
+      flex-direction: column;    /* Stack buttons vertically */
+  }
+  
+  .save-btn,
+  .cancel-btn {
+      width: 100%;             /* Full width buttons */
+  }
+}
+
+/* Small mobile devices (480px and below) */
+@media (max-width: 480px) {
+  .UserForm {
+      padding: 0.25rem;         /* Minimal padding */
+      border: none;             /* Remove border */
+  }
+  
+  .form-container {
+      padding: 0.75rem;         /* Compact padding */
+      gap: 0.75rem;             /* Reduced spacing */
+      box-shadow: none;         /* Remove shadow */
+  }
+  
+  h1 {
+      font-size: 1.3rem;        /* Smaller heading */
+  }
+  
+  .form-container input {
+      padding: 0.7rem;          /* Slightly less padding */
+  }
+}
+
+/* Very small devices (320px and below) */
+@media (max-width: 320px) {
+  .form-container {
+      padding: 0.5rem;          /* Very compact padding */
+  }
+  
+  .form-container label {
+      font-size: 0.85rem;       /* Smaller labels */
+  }
+  
+  .save-btn,
+  .cancel-btn {
+      padding: 0.6rem;         /* Compact buttons */
+      font-size: 0.9rem;        /* Smaller button text */
+  }
+}
+
+/* Mobile landscape orientation */
+@media (max-height: 480px) and (orientation: landscape) {
+  .UserForm {
+      height: auto;             /* Auto height */
+      min-height: 100vh;        /* At least full viewport height */
+      overflow-y: auto;        /* Enable scrolling */
+  }
+}
